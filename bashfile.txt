@@ -1,0 +1,52 @@
+# bashfile.txt
+
+npm install @ionic-native/sqlite
+npm install cordova-sqlite-storage
+npm i @ionic-native/core
+npm i @angular/cli
+
+# sqlite to JSON generator
+npm i @ionic-native/sqlite-porter
+npm i uk.co.workingedge.cordova.plugin.sqliteporter
+
+# add two services files to services folder
+ionic generate service services/dataorang
+ionic generate service services/dborang
+
+
+# to run ionic in Android device
+#to run native Android directly from vscode
+ionic cap add android
+ionic build
+ionic capacitor copy
+ionic capacitor run android
+
+
+
+ionic cordova plugin add uk.co.workingedge.cordova.plugin.sqliteporter
+
+#to open on Android Studion
+ionic capacitor open android
+
+#for qrcode scanner
+ionic cordova plugin add phonegap-plugin-barcodescanner
+npm install @ionic-native/barcode-scanner
+
+#for qrcode with zbar plugins/ this cordova plugins also not working for capacitor
+# https://www.positronx.io/ionic-qr-code-scanner-with-zbar-barcode-tutorial/
+ionic cordova plugin add cordova-plugin-cszbar
+npm install @ionic-native/zbar
+npm i @ionic-native/core
+
+#not recommended too old
+# official ionic framework help ZBAR
+# https://ionicframework.com/docs/native/zbar
+npm install cordova-plugin-cszbar 
+npm install @awesome-cordova-plugins/zbar 
+ionic cap sync
+
+
+# https://github.com/capacitor-community/barcode-scanner
+# barcode scanner capacitor community
+npm install @capacitor-community/barcode-scanner
+npx cap sync

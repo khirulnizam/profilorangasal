@@ -1,20 +1,66 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Profile Orang Asal
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>Masukkan data orang asal</ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="mainForm" (ngSubmit)="tambahOrang()">
+      <h1>Profile Ketua Keluarga</h1>
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon item-left name="person-circle"></ion-icon>
+          Nama
+        </ion-label>
+        <ion-input formControlName="nama" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon item-left name="card"></ion-icon>
+          No KP/IC (010101-01-0101)
+        </ion-label>
+        <ion-input formControlName="nokp" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon item-left name="cash"></ion-icon>
+          Gaji/Pendapatan
+        </ion-label>
+        <ion-input formControlName="pendapatan" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button color="primary" (click)="tambahOrang()">Simpan &nbsp;
+          <ion-icon name="save-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="success"  [routerLink]="['/scanpage']">Scan &nbsp; <ion-icon name="scan-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </form>
+    </ion-card-content>
+  </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- home.page.html listitems to display records-->
+  <ion-card>
+    <ion-card-header>Senarai data orang asal</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item lines="inset" *ngFor="let data of Data">
+          <ion-label>
+            <h5>{{data.nama}}</h5>
+            <p>{{data.nokp}} Gaji RM{{data.pendapatan}}</p>
+          </ion-label>
+          <div class="item-note" item-end>
+            <ion-icon name="create" style="zoom:2.0" [routerLink]="['/orang/', data.id]"></ion-icon>        
+            <ion-icon name="trash" style="zoom:2.0" (click)="padamOrang(data.id)"></ion-icon>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
