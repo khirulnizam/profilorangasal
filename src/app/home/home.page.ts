@@ -19,7 +19,8 @@ export class HomePage {
     private router: Router
 	) {
     
-  }
+  }//end constructor
+
   mainForm: FormGroup;//hold data from formgroup
   Data:any[] = []//hold resultsets of records
 
@@ -39,7 +40,8 @@ export class HomePage {
     })
   }//end ngOnInit
 
-  tambahOrang(){//this is function to add new record of the form to the db-sqlite
+  tambahOrang(){
+    //this is function to add new record of the form to the db-sqlite
     if(this.mainForm.value.nokp!=null || this.mainForm.value.nokp!=""){
       this.db.addOrang(
         this.mainForm.value.nokp,
@@ -57,4 +59,4 @@ export class HomePage {
     
   }//end padamOrang
 
-}
+}//end export class
