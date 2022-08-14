@@ -1,0 +1,7 @@
+{
+  "name": "profilorangasal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
